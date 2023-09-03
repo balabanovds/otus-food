@@ -3,6 +3,7 @@ import "dart:async";
 import 'package:flutter/material.dart';
 import 'package:otus_food/relative_size.dart';
 import 'package:otus_food/repo/dto.dart';
+import 'package:otus_food/repo/provider.dart';
 import 'package:otus_food/repo/provider_json.dart';
 
 const borderRadius = 10.0;
@@ -20,11 +21,11 @@ class _RecipesListState extends State<RecipesList> {
   @override
   initState() {
     super.initState();
-    loadData();
+    loadData(JsonRecipesProvider());
   }
 
-  Future<void> loadData() async {
-    var data = await JsonRecipesProvider().recipes();
+  Future<void> loadData(RecipesProvider provider) async {
+    var data = await provider.recipes();
     setState(() {
       _list = data;
     });
