@@ -1,9 +1,11 @@
-import 'dart:convert';
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:otus_food/relative_size.dart';
+import 'package:otus_food/repo/dto.dart';
+import 'package:otus_food/repo/provider_json.dart';
+
+const borderRadius = 10.0;
 
 class RecipesList extends StatefulWidget {
   const RecipesList({super.key});
@@ -13,7 +15,7 @@ class RecipesList extends StatefulWidget {
 }
 
 class _RecipesListState extends State<RecipesList> {
-  List _list = [];
+  late List<RecipeDto> _list = [];
 
   @override
   initState() {
@@ -22,10 +24,9 @@ class _RecipesListState extends State<RecipesList> {
   }
 
   Future<void> loadData() async {
-    final String response = await rootBundle.loadString('assets/recipes.json');
-    final data = await json.decode(response);
+    var data = await JsonRecipesProvider().recipes();
     setState(() {
-      _list = data['items'];
+      _list = data;
     });
   }
 
@@ -38,51 +39,35 @@ class _RecipesListState extends State<RecipesList> {
         right: RelativeSize.width(context, 16),
       ),
       child: _list.isNotEmpty
-          ? Expanded(
-              child: ListView.separated(
-                itemCount: _list.length,
-                itemBuilder: (context, index) {
-                  final _RecipeDto item = _RecipeDto.fromJson(_list[index]);
-                  return _RecipesListEntry(
-                      item._url, item._title, item._duration);
-                },
-                separatorBuilder: (context, index) {
-                  return SizedBox(
-                    height: RelativeSize.height(context, 24),
-                  );
-                },
-              ),
+          ? ListView.separated(
+              physics: const BouncingScrollPhysics(),
+              itemCount: _list.length,
+              itemBuilder: (context, index) {
+                return _RecipesListEntry(_list[index]);
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(
+                  height: RelativeSize.height(context, 24),
+                );
+              },
+              clipBehavior: Clip.none,
             )
           : Container(),
     );
   }
 }
 
-class _RecipeDto {
-  final int _id;
-  final String _url;
-  final String _title;
-  final String _duration;
-
-  _RecipeDto.fromJson(Map<String, dynamic> data)
-      : _id = data['id'],
-        _url = data['url'],
-        _title = data['title'],
-        _duration = data['duration'];
-}
-
 class _RecipesListEntry extends StatelessWidget {
-  final String _url;
-  final String _title;
-  final String _duration;
+  final RecipeDto item;
 
-  const _RecipesListEntry(this._url, this._title, this._duration);
+  const _RecipesListEntry(this.item);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: RelativeSize.width(context, 396),
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
         boxShadow: [
           BoxShadow(
             color: Color.fromARGB(255, 208, 208, 208),
@@ -101,15 +86,16 @@ class _RecipesListEntry extends StatelessWidget {
     return Row(
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          width: RelativeSize.width(context, 149),
-          height: RelativeSize.height(context, 136),
-          child: FittedBox(
+        ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(borderRadius),
+            bottomLeft: Radius.circular(borderRadius),
+          ),
+          child: Image.network(
+            item.url,
             fit: BoxFit.cover,
-            clipBehavior: Clip.hardEdge,
-            child: Image.network(
-              _url,
-            ),
+            width: RelativeSize.width(context, 149),
+            height: RelativeSize.height(context, 136),
           ),
         ),
         Padding(
@@ -125,7 +111,7 @@ class _RecipesListEntry extends StatelessWidget {
                 height: RelativeSize.height(context, 52),
                 width: RelativeSize.width(context, 208),
                 child: Text(
-                  _title,
+                  item.title,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: TextStyle(
@@ -153,7 +139,7 @@ class _RecipesListEntry extends StatelessWidget {
                       width: RelativeSize.width(context, 11),
                     ),
                     Text(
-                      _duration,
+                      item.duration,
                       style: TextStyle(
                         color: const Color.fromARGB(255, 46, 204, 113),
                         fontFamily: 'Roboto',
@@ -161,10 +147,6 @@ class _RecipesListEntry extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    // Expanded(
-                    //     child: Text(
-                    //   duration,
-                    // ))
                   ],
                 ),
               ),
