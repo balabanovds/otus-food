@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 class JsonRecipesProvider implements RecipesProvider {
   @override
   Future<List<RecipeDto>> recipes() async {
-    final String response = await rootBundle.loadString('assets/recipes.json');
+    final String response = await rootBundle.loadString('assets/data/recipes.json');
     final data = json.decode(response);
     final List<dynamic> items = data['items'];
 
