@@ -1,6 +1,7 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
+import 'package:otus_food/recipe.dart';
 import 'package:otus_food/repo/dto.dart';
 import 'package:otus_food/repo/provider.dart';
 import 'package:otus_food/repo/provider_json.dart';
@@ -64,92 +65,103 @@ class _RecipesListEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 136,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
-        boxShadow: [
-          BoxShadow(
-            color: Color.fromARGB(255, 208, 208, 208),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3),
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Recipe(item: item),
           ),
-        ],
-        color: Colors.white,
-      ),
-      clipBehavior: Clip.hardEdge,
-      child: Flex(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        direction: Axis.horizontal,
-        children: [
-          Flexible(
-            flex: 3,
-            fit: FlexFit.tight,
-            //   fit: BoxFit.cover,
-            child: Image.network(
-              item.url,
-              fit: BoxFit.cover,
+        );
+      },
+      child: Container(
+        height: 136,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(255, 208, 208, 208),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3),
             ),
+          ],
+          color: Colors.white,
+        ),
+        clipBehavior: Clip.hardEdge,
+        child: _recipeEntry(context),
+      ),
+    );
+  }
+
+  Widget _recipeEntry(BuildContext context) {
+    return Flex(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      direction: Axis.horizontal,
+      children: [
+        Flexible(
+          flex: 3,
+          fit: FlexFit.tight,
+          //   fit: BoxFit.cover,
+          child: Image.network(
+            item.url,
+            fit: BoxFit.cover,
           ),
-          Flexible(
-            flex: 7,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 30,
-                left: 16,
-                right: 16,
-                bottom: 20,
-              ),
-              child: IntrinsicWidth(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.title,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: const TextStyle(
-                        fontFamily: 'Roboto',
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Icon(
-                            Icons.schedule,
-                            size: 16,
-                          ),
-                          const SizedBox(
-                            width: 11,
-                          ),
-                          Text(
-                            item.duration,
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 46, 204, 113),
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+        ),
+        Flexible(
+          flex: 7,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 30,
+              left: 16,
+              right: 16,
+              bottom: 20,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  item.title,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: const TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.schedule,
+                        size: 16,
+                      ),
+                      const SizedBox(
+                        width: 11,
+                      ),
+                      Text(
+                        item.duration,
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 46, 204, 113),
+                          fontFamily: 'Roboto',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }
