@@ -101,50 +101,48 @@ class _RecipesListEntry extends StatelessWidget {
                 right: 16,
                 bottom: 20,
               ),
-              child: IntrinsicWidth(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.title,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: const TextStyle(
-                        fontFamily: 'Roboto',
-                        fontSize: 22,
-                        fontWeight: FontWeight.w500,
-                      ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.title,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: const TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
                     ),
-                    const SizedBox(
-                      height: 10,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.schedule,
+                          size: 16,
+                        ),
+                        const SizedBox(
+                          width: 11,
+                        ),
+                        Text(
+                          item.duration,
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 46, 204, 113),
+                            fontFamily: 'Roboto',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
                     ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const Icon(
-                            Icons.schedule,
-                            size: 16,
-                          ),
-                          const SizedBox(
-                            width: 11,
-                          ),
-                          Text(
-                            item.duration,
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 46, 204, 113),
-                              fontFamily: 'Roboto',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           )
