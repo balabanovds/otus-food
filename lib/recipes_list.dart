@@ -1,7 +1,6 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:otus_food/relative_size.dart';
 import 'package:otus_food/repo/dto.dart';
 import 'package:otus_food/repo/provider.dart';
 import 'package:otus_food/repo/provider_json.dart';
@@ -34,10 +33,10 @@ class _RecipesListState extends State<RecipesList> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        top: RelativeSize.height(context, 45),
-        left: RelativeSize.width(context, 16),
-        right: RelativeSize.width(context, 16),
+      padding: const EdgeInsets.only(
+        top: 45,
+        left: 16,
+        right: 16,
       ),
       child: _list.isNotEmpty
           ? ListView.separated(
@@ -47,8 +46,8 @@ class _RecipesListState extends State<RecipesList> {
                 return _RecipesListEntry(_list[index]);
               },
               separatorBuilder: (context, index) {
-                return SizedBox(
-                  height: RelativeSize.height(context, 24),
+                return const SizedBox(
+                  height: 16,
                 );
               },
               clipBehavior: Clip.none,
@@ -66,7 +65,7 @@ class _RecipesListEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: RelativeSize.width(context, 396),
+      height: 136,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
         boxShadow: [
@@ -79,82 +78,78 @@ class _RecipesListEntry extends StatelessWidget {
         ],
         color: Colors.white,
       ),
-      child: _row(context),
-    );
-  }
-
-  Widget _row(BuildContext context) {
-    return Row(
-      // crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(borderRadius),
-            bottomLeft: Radius.circular(borderRadius),
+      clipBehavior: Clip.hardEdge,
+      child: Flex(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        direction: Axis.horizontal,
+        children: [
+          Flexible(
+            flex: 3,
+            fit: FlexFit.tight,
+            //   fit: BoxFit.cover,
+            child: Image.network(
+              item.url,
+              fit: BoxFit.cover,
+            ),
           ),
-          child: Image.network(
-            item.url,
-            fit: BoxFit.cover,
-            width: RelativeSize.width(context, 149),
-            height: RelativeSize.height(context, 136),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: RelativeSize.height(context, 30),
-            left: RelativeSize.width(context, 16),
-            right: RelativeSize.width(context, 23),
-            bottom: RelativeSize.height(context, 23),
-          ),
-          child: Column(
-            children: [
-              SizedBox(
-                height: RelativeSize.height(context, 52),
-                width: RelativeSize.width(context, 208),
-                child: Text(
-                  item.title,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: RelativeSize.height(context, 22),
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+          Flexible(
+            flex: 7,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 30,
+                left: 16,
+                right: 16,
+                bottom: 20,
               ),
-              SizedBox(
-                height: RelativeSize.height(context, 12),
-              ),
-              Container(
-                height: RelativeSize.height(context, 19),
-                width: RelativeSize.width(context, 208),
-                alignment: Alignment.centerLeft,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+              child: IntrinsicWidth(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
-                      Icons.schedule,
-                      size: RelativeSize.height(context, 16),
-                    ),
-                    SizedBox(
-                      width: RelativeSize.width(context, 11),
-                    ),
                     Text(
-                      item.duration,
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 46, 204, 113),
+                      item.title,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: const TextStyle(
                         fontFamily: 'Roboto',
-                        fontSize: RelativeSize.height(context, 16),
-                        fontWeight: FontWeight.w400,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Icon(
+                            Icons.schedule,
+                            size: 16,
+                          ),
+                          const SizedBox(
+                            width: 11,
+                          ),
+                          Text(
+                            item.duration,
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 46, 204, 113),
+                              fontFamily: 'Roboto',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
-        )
-      ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
