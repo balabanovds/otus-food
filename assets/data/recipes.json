@@ -1,46 +1,44 @@
-{
-    "items": [
-        {
-            "id": 1,
-            "url": "https://s3-alpha-sig.figma.com/img/2a02/af01/3e816581720c9245aa5ffaad28e2d128?Expires=1694390400&Signature=ZupcJMFE-ciM7VZRxfvnRKthkawv4GzRVF6pL15bYiTqSZkWwUoW9ymFjApL-mr8kTsxZQiE9J1ejJ7IWAxPvTZgMS9BSQTcJz68wFcjVqxVxnQoabqucEsMSJLiCQMi~YOTIAXYpJLr5VwrwbbijAdiyQfi7bXE5RJhh2xHTkAuJOUEDobMpwBWtDcxcFG7kBnfpqKhsSaMCGskGComFTYGebYEsyOd9VD~SFuBRHmO6Q5yWQ7pjhf4fJcUfbvzATXsYpj5iFFgXjTX2fNry~5spq-hqBvqbZIVnwaRI8qcT5TsQ90OdA6fYXKm1gzHmUTzpA8kBNSrCJ~quWL4og__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            "title": "Лосось в соусе терияки",
-            "duration": "45 минут"
-        },
-        {
-            "id": 2,
-            "url": "https://s3-alpha-sig.figma.com/img/4eea/f1ac/a491ff10a7c6e391d8e9fcaadd76a0dd?Expires=1694390400&Signature=IkmmF9EII7hJ0JVP2V8YCMtoswYcsEW-a5U2iOGmHfCVNd6Wxn~J2Flxb5HAFCepC1sxiqKQEup8WNqLuyGFjAoTlWJd6~S48GzGflW51yAJek5C43~g4gVRZr2sVXf~f6Z3edbwKuQIixBYC6zoVOqIGBpWKajqe7TGfCkVfmxi9ah69NkZaTclzK2Z7qBRBvQRVd0OT1BBPsZ2YNyT~KVjnVDeiF1HMsLM2izHIMPVgaAtVs87OrnO2A9IVi~cPnCKefRw3FYiT8t6ss-aE5xkYQZsHVaW0Pax2TUcGr9LixYnApKRi3Ua5GIucpOE2auxeUHetIalLLpvprabjw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            "title": "Поке боул с сыром тофу",
-            "duration": "30 минут"
-        },
-        {
-            "id": 3,
-            "url": "https://s3-alpha-sig.figma.com/img/aeda/3659/1795131bf998bbec61201a2d81c2c1f7?Expires=1694390400&Signature=M4B8a0yv20emjn2zZEu~Rudv8lu-SZTAzyfhMNYRW3KuTh0k0Fe8fQE8TqTL6hpu4JCxCEstQg6p0QdH0ud-9jVyUkoTPpTyiE~zWd47B65Ba7nARjEnzC-Ku5mTj1XaFQoHPUhRGQFfzRsMFk8rf5AwgF0th-zyE6ne3j4-sX66wgrpPyDsR20mOkg8JK9JvP3rHsvUPYeXF-RMg4~wHvvdyGn1OEagRE9SAtLCO25mNfkOirNvxeLQqvwqcHdwAa6rMibcfEcoOrGVSuPVr57JICzXHculj3EOtBHexlytJ4~azSRCpPrTMLjvZN3OtmsUb1kqEIlF-Fd5CZbTow__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            "title": "Стейк из говядины по-грузински с кукурузой",
-            "duration": "1 час 15 минут"
-        },
-        {
-            "id": 4,
-            "url": "https://s3-alpha-sig.figma.com/img/ed63/aee5/5f3c5badf56fd663f1fb0f2676cf61ed?Expires=1694390400&Signature=CYTR8s8iUE8YGdZnEVjWXFKpJ019zX5ufxfKcrRLGv0eOfnhVNvcxZ9fv2k1QuNiaxPAHcYopc6SgUYhOVdNZv2b-nSMk0GPYY51B-0zziLe85GS25we09OLviMQwPXQFG5i32fJzeqA7H6vXkQM9XQpgeMMj4FImEvLR7P~9tE5rrpv5EV7bQvmd4sM81rSsy2db9Hmnn1nzoQed1bIeGA28PPG0xBFgS7FqlbZ2E1akimCF9Ipq0b4hp9cr7Mk1jolk-kOfSHz-LVLk7H4VdTgPLPQN6GmiIfp-up~mCS1lUTb7fHuqf2Yx~~-qgOQW628NhhzSlPoHEe8oeL4eg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            "title": "Тосты с голубикой и бананом",
-            "duration": "45 минут"
-        },
-        {
-            "id": 5,
-            "url": "https://s3-alpha-sig.figma.com/img/9022/f5fb/234096330f0e6de18624f7f69747fd8d?Expires=1694390400&Signature=gLNJ8PGaQuKrtiHLLyraPmzcVmt8kAo5qntblThWj7lDR2p8ijtO3V~u1RN6Tzs1OA2kfRqA~iaqJvyj06DSpiUDhkP3ACwdXwCnWkSXHPUNXqJ50anWjQ9dYgmvz7GPgNraQkJ-s07X2D7V1qq20qu~Nvc6LHI-WKfHfiIQDNaY9X7GMcjen4PhWfOyNbv4BVtS3w5JW9xca3Ts2WiVLKDBT-tiTPVfNVTfvU1b6VLosLZ8muBVhyu7RrcmzJHbwVEIokQsRvE55hZ0PW4A12g-d~EhkpPJehcE4DRyqbZodNm-3fa-WcyOW~hjEzhs-3E9XNxRyqcExpSd09hnDA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            "title": "Паста с морепродуктами",
-            "duration": "25 минут"
-        },
-        {
-            "id": 6,
-            "url": "https://s3-alpha-sig.figma.com/img/e585/4df9/3897bbf4349aec89d4a65d365bee9ff5?Expires=1694390400&Signature=JPe5OftqXSi2uK2NMYwiY3Z-RdcyBMkBCfszOBFwkKMYLqqgIJ6PutpQO9rQMtB1Hp-YLY7aGYbPNYF9txxKO2TPFepI1PwulbQWH1nkTFGZ1zotgUTbL~0aH-lz-HkNrXnsWr-TUZhZsviZruT1tTlKoG~YTQ-PWlyslXdi2h7FsycnSeefacJk2OCuvc29yUQRcMv6uA4uZEJJLQ-eMwb102NuqIGKnFjVlf~~u8jH8AaEji-cDuerUc45nfVyodU6w9kY7Sl-H18V7Ibxn7NPpDvVoOWvNqnUybetnyl6-Sh5NaAV3v40iP7y3QtIR1AOd9gLHXuhccK0hZe-iQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            "title": "Бургер с двумя котлетами",
-            "duration": "1 час"
-        },
-        {
-            "id": 7,
-            "url": "https://s3-alpha-sig.figma.com/img/fcae/f476/219ed7f987f3f82550c993f4e63e61d8?Expires=1694390400&Signature=ZwVvyk7ykiDh1neksSfnpxxw9zf0lWUODng4xGWbW5mGA1XHQYJe04wrulnoiqyp1k8wp80NeoAycRfl3wF8FP030SExatPaYaLpYkPD9uaho3BJlUNQH3JDBI-jUEOrfsvSRMYINpDqQrrQ81LQTVcS3etwt3eHvfzjoH7U9k3EauTlvDTjpHpKY3rX1jJfWL5i9bS2Uw9Ka9rvl-iHle09qLWRchks7cSymUjQxu3rQ8zsd6~76fA3i3blxVnoFPt8snWBSv9uDWhGsgLEr~3vjL2-Pj9gwjpy1PowUavaCS8R2K1TLIK4GLDY1URG6ZqDfV0qfPoEkkYnerdAGA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
-            "title": "Пицца Маргарита домашняя",
-            "duration": "25 минут"
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "url": "https://s3-alpha-sig.figma.com/img/2a02/af01/3e816581720c9245aa5ffaad28e2d128?Expires=1694390400&Signature=ZupcJMFE-ciM7VZRxfvnRKthkawv4GzRVF6pL15bYiTqSZkWwUoW9ymFjApL-mr8kTsxZQiE9J1ejJ7IWAxPvTZgMS9BSQTcJz68wFcjVqxVxnQoabqucEsMSJLiCQMi~YOTIAXYpJLr5VwrwbbijAdiyQfi7bXE5RJhh2xHTkAuJOUEDobMpwBWtDcxcFG7kBnfpqKhsSaMCGskGComFTYGebYEsyOd9VD~SFuBRHmO6Q5yWQ7pjhf4fJcUfbvzATXsYpj5iFFgXjTX2fNry~5spq-hqBvqbZIVnwaRI8qcT5TsQ90OdA6fYXKm1gzHmUTzpA8kBNSrCJ~quWL4og__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+        "title": "Лосось в соусе терияки",
+        "duration": "45 минут"
+    },
+    {
+        "id": 2,
+        "url": "https://s3-alpha-sig.figma.com/img/4eea/f1ac/a491ff10a7c6e391d8e9fcaadd76a0dd?Expires=1694390400&Signature=IkmmF9EII7hJ0JVP2V8YCMtoswYcsEW-a5U2iOGmHfCVNd6Wxn~J2Flxb5HAFCepC1sxiqKQEup8WNqLuyGFjAoTlWJd6~S48GzGflW51yAJek5C43~g4gVRZr2sVXf~f6Z3edbwKuQIixBYC6zoVOqIGBpWKajqe7TGfCkVfmxi9ah69NkZaTclzK2Z7qBRBvQRVd0OT1BBPsZ2YNyT~KVjnVDeiF1HMsLM2izHIMPVgaAtVs87OrnO2A9IVi~cPnCKefRw3FYiT8t6ss-aE5xkYQZsHVaW0Pax2TUcGr9LixYnApKRi3Ua5GIucpOE2auxeUHetIalLLpvprabjw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+        "title": "Поке боул с сыром тофу",
+        "duration": "30 минут"
+    },
+    {
+        "id": 3,
+        "url": "https://s3-alpha-sig.figma.com/img/aeda/3659/1795131bf998bbec61201a2d81c2c1f7?Expires=1694390400&Signature=M4B8a0yv20emjn2zZEu~Rudv8lu-SZTAzyfhMNYRW3KuTh0k0Fe8fQE8TqTL6hpu4JCxCEstQg6p0QdH0ud-9jVyUkoTPpTyiE~zWd47B65Ba7nARjEnzC-Ku5mTj1XaFQoHPUhRGQFfzRsMFk8rf5AwgF0th-zyE6ne3j4-sX66wgrpPyDsR20mOkg8JK9JvP3rHsvUPYeXF-RMg4~wHvvdyGn1OEagRE9SAtLCO25mNfkOirNvxeLQqvwqcHdwAa6rMibcfEcoOrGVSuPVr57JICzXHculj3EOtBHexlytJ4~azSRCpPrTMLjvZN3OtmsUb1kqEIlF-Fd5CZbTow__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+        "title": "Стейк из говядины по-грузински с кукурузой",
+        "duration": "1 час 15 минут"
+    },
+    {
+        "id": 4,
+        "url": "https://s3-alpha-sig.figma.com/img/ed63/aee5/5f3c5badf56fd663f1fb0f2676cf61ed?Expires=1694390400&Signature=CYTR8s8iUE8YGdZnEVjWXFKpJ019zX5ufxfKcrRLGv0eOfnhVNvcxZ9fv2k1QuNiaxPAHcYopc6SgUYhOVdNZv2b-nSMk0GPYY51B-0zziLe85GS25we09OLviMQwPXQFG5i32fJzeqA7H6vXkQM9XQpgeMMj4FImEvLR7P~9tE5rrpv5EV7bQvmd4sM81rSsy2db9Hmnn1nzoQed1bIeGA28PPG0xBFgS7FqlbZ2E1akimCF9Ipq0b4hp9cr7Mk1jolk-kOfSHz-LVLk7H4VdTgPLPQN6GmiIfp-up~mCS1lUTb7fHuqf2Yx~~-qgOQW628NhhzSlPoHEe8oeL4eg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+        "title": "Тосты с голубикой и бананом",
+        "duration": "45 минут"
+    },
+    {
+        "id": 5,
+        "url": "https://s3-alpha-sig.figma.com/img/9022/f5fb/234096330f0e6de18624f7f69747fd8d?Expires=1694390400&Signature=gLNJ8PGaQuKrtiHLLyraPmzcVmt8kAo5qntblThWj7lDR2p8ijtO3V~u1RN6Tzs1OA2kfRqA~iaqJvyj06DSpiUDhkP3ACwdXwCnWkSXHPUNXqJ50anWjQ9dYgmvz7GPgNraQkJ-s07X2D7V1qq20qu~Nvc6LHI-WKfHfiIQDNaY9X7GMcjen4PhWfOyNbv4BVtS3w5JW9xca3Ts2WiVLKDBT-tiTPVfNVTfvU1b6VLosLZ8muBVhyu7RrcmzJHbwVEIokQsRvE55hZ0PW4A12g-d~EhkpPJehcE4DRyqbZodNm-3fa-WcyOW~hjEzhs-3E9XNxRyqcExpSd09hnDA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+        "title": "Паста с морепродуктами",
+        "duration": "25 минут"
+    },
+    {
+        "id": 6,
+        "url": "https://s3-alpha-sig.figma.com/img/e585/4df9/3897bbf4349aec89d4a65d365bee9ff5?Expires=1694390400&Signature=JPe5OftqXSi2uK2NMYwiY3Z-RdcyBMkBCfszOBFwkKMYLqqgIJ6PutpQO9rQMtB1Hp-YLY7aGYbPNYF9txxKO2TPFepI1PwulbQWH1nkTFGZ1zotgUTbL~0aH-lz-HkNrXnsWr-TUZhZsviZruT1tTlKoG~YTQ-PWlyslXdi2h7FsycnSeefacJk2OCuvc29yUQRcMv6uA4uZEJJLQ-eMwb102NuqIGKnFjVlf~~u8jH8AaEji-cDuerUc45nfVyodU6w9kY7Sl-H18V7Ibxn7NPpDvVoOWvNqnUybetnyl6-Sh5NaAV3v40iP7y3QtIR1AOd9gLHXuhccK0hZe-iQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+        "title": "Бургер с двумя котлетами",
+        "duration": "1 час"
+    },
+    {
+        "id": 7,
+        "url": "https://s3-alpha-sig.figma.com/img/fcae/f476/219ed7f987f3f82550c993f4e63e61d8?Expires=1694390400&Signature=ZwVvyk7ykiDh1neksSfnpxxw9zf0lWUODng4xGWbW5mGA1XHQYJe04wrulnoiqyp1k8wp80NeoAycRfl3wF8FP030SExatPaYaLpYkPD9uaho3BJlUNQH3JDBI-jUEOrfsvSRMYINpDqQrrQ81LQTVcS3etwt3eHvfzjoH7U9k3EauTlvDTjpHpKY3rX1jJfWL5i9bS2Uw9Ka9rvl-iHle09qLWRchks7cSymUjQxu3rQ8zsd6~76fA3i3blxVnoFPt8snWBSv9uDWhGsgLEr~3vjL2-Pj9gwjpy1PowUavaCS8R2K1TLIK4GLDY1URG6ZqDfV0qfPoEkkYnerdAGA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+        "title": "Пицца Маргарита домашняя",
+        "duration": "25 минут"
+    }
+]

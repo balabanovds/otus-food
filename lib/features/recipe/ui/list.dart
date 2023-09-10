@@ -1,10 +1,10 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:otus_food/recipe.dart';
-import 'package:otus_food/repo/dto.dart';
-import 'package:otus_food/repo/provider.dart';
-import 'package:otus_food/repo/provider_json.dart';
+import 'package:otus_food/features/recipe/ui/recipe.dart';
+import 'package:otus_food/features/recipe/repo/dto.dart';
+import 'package:otus_food/features/recipe/repo/provider.dart';
+import 'package:otus_food/features/recipe/repo/provider_json.dart';
 
 const borderRadius = 10.0;
 
@@ -21,10 +21,10 @@ class _RecipesListState extends State<RecipesList> {
   @override
   initState() {
     super.initState();
-    loadData(JsonRecipesProvider());
+    loadData(JsonProvider());
   }
 
-  Future<void> loadData(RecipesProvider provider) async {
+  Future<void> loadData(RecipeListProvider provider) async {
     var data = await provider.recipes();
     setState(() {
       _list = data;
@@ -99,16 +99,15 @@ class _RecipesListEntry extends StatelessWidget {
       direction: Axis.horizontal,
       children: [
         Flexible(
-          flex: 3,
+          flex: 37,
           fit: FlexFit.tight,
-          //   fit: BoxFit.cover,
           child: Image.network(
             item.url,
             fit: BoxFit.cover,
           ),
         ),
         Flexible(
-          flex: 7,
+          flex: 63,
           child: Padding(
             padding: const EdgeInsets.only(
               top: 30,
