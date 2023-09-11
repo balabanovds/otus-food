@@ -4,7 +4,7 @@ import 'dart:convert';
 import "dart:async";
 import 'package:flutter/services.dart';
 
-class JsonProvider implements RecipeListProvider, IngredientsProvider {
+class JsonProvider implements Provider {
   @override
   Future<List<RecipeDto>> recipes() async {
     final String response = await rootBundle.loadString('assets/data/recipes.json');
@@ -20,7 +20,16 @@ class JsonProvider implements RecipeListProvider, IngredientsProvider {
     final data = json.decode(response);
     final List<dynamic> items = data;
 
-    return items.map((e) => _IngredientsDto.fromJson(e)).singleWhere((element) => element.id == id).items;
+    return items.map((e) => _IngredientsDto.fromJson(e)).singleWhere((e) => e.id == id).items;
+  }
+
+  @override
+  Future<List<StepDto>> steps(int id) async {
+    final String response = await rootBundle.loadString('assets/data/recipes_steps.json');
+    final data = json.decode(response);
+    final List<dynamic> items = data;
+
+    return items.map((e) => _StepsDto.fromJson(e)).singleWhere((e) => e.id == id).items;
   }
 }
 
@@ -30,11 +39,22 @@ class _IngredientsDto {
 
   late List<IngredientDto> items = [];
 
-  bool get isEmpty => items.isEmpty;
-
   _IngredientsDto.fromJson(Map<String, dynamic> data)
       : id = data['id'],
         _items = data['ingredients'] {
     items = _items.map((e) => IngredientDto.fromJson(id, e)).toList();
+  }
+}
+
+class _StepsDto {
+  final int id;
+  final List<dynamic> _items;
+
+  late List<StepDto> items = [];
+
+  _StepsDto.fromJson(Map<String, dynamic> data)
+      : id = data['id'],
+        _items = data['steps'] {
+    items = _items.map((e) => StepDto.fromJson(id, e)).toList();
   }
 }

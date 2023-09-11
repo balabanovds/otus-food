@@ -16,12 +16,21 @@ class IngredientDto {
   final String name;
   final String value;
 
-  @override
-  String toString() {
-    return 'Ingredient: id=$id, name=$name, value=$value';
-  }
-
   IngredientDto.fromJson(this.id, Map<String, dynamic> data)
       : name = data['name'],
         value = data['value'];
+}
+
+class StepDto {
+  final int id;
+  final int stepNumber;
+  final bool done;
+  final String text;
+  final String duration;
+
+  StepDto.fromJson(this.id, Map<String, dynamic> data)
+      : stepNumber = data['step_number'],
+        done = data['done'],
+        text = data['text'],
+        duration = data['duration'];
 }

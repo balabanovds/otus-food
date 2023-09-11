@@ -18,10 +18,10 @@ class _IngredientsState extends State<Ingredients> {
   @override
   void initState() {
     super.initState();
-    loadIngredients(JsonProvider());
+    loadData(JsonProvider());
   }
 
-  Future<void> loadIngredients(IngredientsProvider provider) async {
+  Future<void> loadData(IngredientsProvider provider) async {
     var data = await provider.ingredients(widget.id);
     setState(() {
       _ingredients = data;
@@ -81,6 +81,7 @@ class _IngredientsState extends State<Ingredients> {
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w500,
               fontSize: 14,
+              height: 1.93,
             ),
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otus_food/features/recipe/repo/dto.dart';
+import 'package:otus_food/features/recipe/ui/steps.dart';
 
 import 'ingredients.dart';
 
@@ -57,6 +58,10 @@ class _RecipeState extends State<Recipe> {
               height: 22,
             ),
             Ingredients(id: widget.item.id),
+            const SizedBox(
+              height: 20,
+            ),
+            Steps(id: widget.item.id),
           ],
         ),
       ),
