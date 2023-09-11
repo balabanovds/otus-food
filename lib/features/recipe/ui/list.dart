@@ -1,8 +1,8 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/ui/recipe.dart';
 import 'package:otus_food/features/recipe/repo/dto.dart';
+import 'package:otus_food/features/recipe/ui/recipe.dart';
 import 'package:otus_food/features/recipe/repo/provider.dart';
 import 'package:otus_food/features/recipe/repo/provider_json.dart';
 
@@ -98,14 +98,7 @@ class _RecipesListEntry extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       direction: Axis.horizontal,
       children: [
-        Flexible(
-          flex: 37,
-          fit: FlexFit.tight,
-          child: Image.network(
-            item.url,
-            fit: BoxFit.cover,
-          ),
-        ),
+        Flexible(flex: 37, fit: FlexFit.tight, child: item.image(BoxFit.cover)),
         Flexible(
           flex: 63,
           child: Padding(

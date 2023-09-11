@@ -1,14 +1,35 @@
+import 'package:flutter/material.dart';
+
 class RecipeDto {
   final int id;
-  final String url;
+  final String imgType;
+  final String imgPath;
   final String title;
   final String duration;
 
   RecipeDto.fromJson(Map<String, dynamic> data)
       : id = data['id'],
-        url = data['url'],
+        imgType = data['img_type'],
+        imgPath = data['img_path'],
         title = data['title'],
         duration = data['duration'];
+
+  Image image(BoxFit fit) {
+    switch (imgType) {
+      case "asset":
+        return Image.asset(
+          imgPath,
+          fit: fit,
+        );
+      case "network":
+        return Image.network(
+          imgPath,
+          fit: fit,
+        );
+      default:
+    }
+    throw Exception("unknown type");
+  }
 }
 
 class IngredientDto {

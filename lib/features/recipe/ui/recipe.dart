@@ -142,10 +142,7 @@ class _RecipeState extends State<Recipe> {
         children: [
           Positioned.fill(
             top: -100,
-            child: Image.network(
-              widget.item.url,
-              fit: BoxFit.cover,
-            ),
+            child: widget.item.image(BoxFit.cover),
           )
         ],
       ),
