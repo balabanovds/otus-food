@@ -1,7 +1,7 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:otus_food/repo/dto.dart';
+import 'package:otus_food/repo/entity.dart';
 import 'package:otus_food/repo/provider.dart';
 import 'package:otus_food/repo/provider_json.dart';
 
@@ -15,7 +15,7 @@ class RecipesList extends StatefulWidget {
 }
 
 class _RecipesListState extends State<RecipesList> {
-  late List<RecipeDto> _list = [];
+  late List<Recipe> _list = [];
 
   @override
   initState() {
@@ -58,7 +58,7 @@ class _RecipesListState extends State<RecipesList> {
 }
 
 class _RecipesListEntry extends StatelessWidget {
-  final RecipeDto item;
+  final Recipe item;
 
   const _RecipesListEntry(this.item);
 
@@ -87,10 +87,7 @@ class _RecipesListEntry extends StatelessWidget {
             flex: 3,
             fit: FlexFit.tight,
             //   fit: BoxFit.cover,
-            child: Image.network(
-              item.url,
-              fit: BoxFit.cover,
-            ),
+            child: item.image(BoxFit.cover),
           ),
           Flexible(
             flex: 7,

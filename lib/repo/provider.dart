@@ -1,5 +1,5 @@
-import 'package:otus_food/repo/dto.dart';
+import 'package:otus_food/repo/entity.dart';
 
 abstract class RecipesProvider {
-  Future<List<RecipeDto>> recipes();
+  Future<List<Recipe>> recipes();
 }
