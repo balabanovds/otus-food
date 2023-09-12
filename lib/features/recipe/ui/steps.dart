@@ -32,7 +32,7 @@ class _StepsState extends State<Steps> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      crossAxisAlignment: _steps.isEmpty ? CrossAxisAlignment.center : CrossAxisAlignment.stretch,
       children: [
         const Text(
           'Шаги приготовления',

@@ -61,15 +61,22 @@ class _IngredientsState extends State<Ingredients> {
           ),
           child: _ingredients.isNotEmpty
               ? Column(
-                  children: _ingredients.map((e) => _row(e)).toList(),
+                  children: _ingredients.map((e) => _IngredientRow(item: e)).toList(),
                 )
               : const CircularProgressIndicator(),
         )
       ],
     );
   }
+}
 
-  Widget _row(IngredientDto item) {
+class _IngredientRow extends StatelessWidget {
+  final IngredientDto item;
+
+  const _IngredientRow({required this.item});
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

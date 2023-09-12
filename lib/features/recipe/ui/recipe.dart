@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:otus_food/features/recipe/repo/dto.dart';
 import 'package:otus_food/features/recipe/ui/steps.dart';
@@ -16,8 +18,6 @@ class Recipe extends StatefulWidget {
 }
 
 class _RecipeState extends State<Recipe> {
-  var _isFavorite = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,11 +49,11 @@ class _RecipeState extends State<Recipe> {
         ),
         child: ListView(
           children: [
-            _title(),
+            _RecipeTitle(item: widget.item),
             const SizedBox(
               height: 12,
             ),
-            _picture(context),
+            _RecipeImage(item: widget.item),
             const SizedBox(
               height: 22,
             ),
@@ -67,8 +67,22 @@ class _RecipeState extends State<Recipe> {
       ),
     );
   }
+}
 
-  Widget _title() {
+class _RecipeTitle extends StatefulWidget {
+  final RecipeDto item;
+
+  const _RecipeTitle({required this.item});
+
+  @override
+  State<_RecipeTitle> createState() => __RecipeTitleState();
+}
+
+class __RecipeTitleState extends State<_RecipeTitle> {
+  var _isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Row(
@@ -134,15 +148,22 @@ class _RecipeState extends State<Recipe> {
       ],
     );
   }
+}
 
-  Widget _picture(BuildContext context) {
+class _RecipeImage extends StatelessWidget {
+  final RecipeDto item;
+
+  const _RecipeImage({required this.item});
+
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
       height: 220,
       child: Stack(
         children: [
           Positioned.fill(
-            top: -100,
-            child: widget.item.image(BoxFit.cover),
+            top: -120,
+            child: item.image(BoxFit.cover),
           )
         ],
       ),

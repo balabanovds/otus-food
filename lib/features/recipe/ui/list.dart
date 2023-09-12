@@ -88,12 +88,19 @@ class _RecipesListEntry extends StatelessWidget {
           color: Colors.white,
         ),
         clipBehavior: Clip.hardEdge,
-        child: _recipeEntry(context),
+        child: _RecipeEntry(item: item),
       ),
     );
   }
+}
 
-  Widget _recipeEntry(BuildContext context) {
+class _RecipeEntry extends StatelessWidget {
+  final RecipeDto item;
+
+  const _RecipeEntry({required this.item});
+
+  @override
+  Widget build(BuildContext context) {
     return Flex(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       direction: Axis.horizontal,
