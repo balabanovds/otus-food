@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/repo/dto.dart';
-import 'package:otus_food/features/recipe/repo/provider.dart';
-import 'package:otus_food/features/recipe/repo/provider_json.dart';
-import 'package:otus_food/features/recipe/ui/recipe.dart';
+
+import '../domain/repository/provider.dart';
+import '../domain/model/ingredient.dart';
+import 'recipe.dart';
 
 class Ingredients extends StatefulWidget {
   final int id;
@@ -13,12 +13,12 @@ class Ingredients extends StatefulWidget {
 }
 
 class _IngredientsState extends State<Ingredients> {
-  List<IngredientDto> _ingredients = [];
+  List<Ingredient> _ingredients = [];
 
   @override
   void initState() {
     super.initState();
-    loadData(JsonProvider());
+    loadData(provider);
   }
 
   Future<void> loadData(IngredientsProvider provider) async {
@@ -71,7 +71,7 @@ class _IngredientsState extends State<Ingredients> {
 }
 
 class _IngredientRow extends StatelessWidget {
-  final IngredientDto item;
+  final Ingredient item;
 
   const _IngredientRow({required this.item});
 

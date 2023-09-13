@@ -1,10 +1,10 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/repo/dto.dart';
 import 'package:otus_food/features/recipe/ui/recipe.dart';
-import 'package:otus_food/features/recipe/repo/provider.dart';
-import 'package:otus_food/features/recipe/repo/provider_json.dart';
+
+import '../domain/repository/provider.dart';
+import '../domain/model/recipe.dart';
 
 const borderRadius = 10.0;
 
@@ -16,12 +16,12 @@ class RecipesList extends StatefulWidget {
 }
 
 class _RecipesListState extends State<RecipesList> {
-  late List<RecipeDto> _list = [];
+  late List<Recipe> _list = [];
 
   @override
   initState() {
     super.initState();
-    loadData(JsonProvider());
+    loadData(provider);
   }
 
   Future<void> loadData(RecipeListProvider provider) async {
@@ -59,7 +59,7 @@ class _RecipesListState extends State<RecipesList> {
 }
 
 class _RecipesListEntry extends StatelessWidget {
-  final RecipeDto item;
+  final Recipe item;
 
   const _RecipesListEntry(this.item);
 
@@ -69,7 +69,7 @@ class _RecipesListEntry extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => Recipe(item: item),
+            builder: (context) => RecipeView(item: item),
           ),
         );
       },
@@ -95,7 +95,7 @@ class _RecipesListEntry extends StatelessWidget {
 }
 
 class _RecipeEntry extends StatelessWidget {
-  final RecipeDto item;
+  final Recipe item;
 
   const _RecipeEntry({required this.item});
 

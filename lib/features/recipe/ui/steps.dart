@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/repo/dto.dart';
-import 'package:otus_food/features/recipe/repo/provider.dart';
-import 'package:otus_food/features/recipe/repo/provider_json.dart';
-import 'package:otus_food/features/recipe/ui/recipe.dart';
 
-class Steps extends StatefulWidget {
+import 'recipe.dart';
+import '../domain/repository/provider.dart';
+import '../domain/model/step.dart' as model;
+
+class StepsView extends StatefulWidget {
   final int id;
 
-  const Steps({super.key, required this.id});
+  const StepsView({super.key, required this.id});
 
   @override
-  State<Steps> createState() => _StepsState();
+  State<StepsView> createState() => _StepsViewState();
 }
 
-class _StepsState extends State<Steps> {
-  List<StepDto> _steps = [];
+class _StepsViewState extends State<StepsView> {
+  List<model.Step> _steps = [];
 
   @override
   void initState() {
     super.initState();
-    loadData(JsonProvider());
+    loadData(provider);
   }
 
   Future<void> loadData(StepsProvider provider) async {
@@ -48,23 +48,23 @@ class _StepsState extends State<Steps> {
         _steps.isEmpty
             ? const CircularProgressIndicator()
             : Column(
-                children: _steps.map((e) => Step(item: e)).toList(),
+                children: _steps.map((e) => StepView(item: e)).toList(),
               )
       ],
     );
   }
 }
 
-class Step extends StatefulWidget {
-  final StepDto item;
+class StepView extends StatefulWidget {
+  final model.Step item;
 
-  const Step({super.key, required this.item});
+  const StepView({super.key, required this.item});
 
   @override
-  State<Step> createState() => _StepState();
+  State<StepView> createState() => _StepViewState();
 }
 
-class _StepState extends State<Step> {
+class _StepViewState extends State<StepView> {
   var _done = false;
 
   @override

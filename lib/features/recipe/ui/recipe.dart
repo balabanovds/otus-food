@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/repo/dto.dart';
-import 'package:otus_food/features/recipe/ui/steps.dart';
 
+import '../domain/model/recipe.dart';
+import 'steps.dart';
 import 'ingredients.dart';
 
 const Color titleTextColor = Color.fromARGB(255, 22, 89, 50);
 
-class Recipe extends StatefulWidget {
-  final RecipeDto item;
+class RecipeView extends StatefulWidget {
+  final Recipe item;
 
-  const Recipe({super.key, required this.item});
+  const RecipeView({super.key, required this.item});
 
   @override
-  State<Recipe> createState() => _RecipeState();
+  State<RecipeView> createState() => _RecipeViewState();
 }
 
-class _RecipeState extends State<Recipe> {
+class _RecipeViewState extends State<RecipeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +47,11 @@ class _RecipeState extends State<Recipe> {
         ),
         child: ListView(
           children: [
-            _RecipeTitle(item: widget.item),
+            _RecipeViewTitle(item: widget.item),
             const SizedBox(
               height: 12,
             ),
-            _RecipeImage(item: widget.item),
+            _RecipeViewImage(item: widget.item),
             const SizedBox(
               height: 22,
             ),
@@ -59,7 +59,7 @@ class _RecipeState extends State<Recipe> {
             const SizedBox(
               height: 20,
             ),
-            Steps(id: widget.item.id),
+            StepsView(id: widget.item.id),
           ],
         ),
       ),
@@ -67,16 +67,16 @@ class _RecipeState extends State<Recipe> {
   }
 }
 
-class _RecipeTitle extends StatefulWidget {
-  final RecipeDto item;
+class _RecipeViewTitle extends StatefulWidget {
+  final Recipe item;
 
-  const _RecipeTitle({required this.item});
+  const _RecipeViewTitle({required this.item});
 
   @override
-  State<_RecipeTitle> createState() => __RecipeTitleState();
+  State<_RecipeViewTitle> createState() => _RecipeViewTitleState();
 }
 
-class __RecipeTitleState extends State<_RecipeTitle> {
+class _RecipeViewTitleState extends State<_RecipeViewTitle> {
   var _isFavorite = false;
 
   @override
@@ -148,10 +148,10 @@ class __RecipeTitleState extends State<_RecipeTitle> {
   }
 }
 
-class _RecipeImage extends StatelessWidget {
-  final RecipeDto item;
+class _RecipeViewImage extends StatelessWidget {
+  final Recipe item;
 
-  const _RecipeImage({required this.item});
+  const _RecipeViewImage({required this.item});
 
   @override
   Widget build(BuildContext context) {
