@@ -1,4 +1,4 @@
-import '../../adapter/dto/ingredient.dart';
+import '../dto/ingredient.dart';
 import '../../domain/model/ingredient.dart';
 
 class IngredientMapper {

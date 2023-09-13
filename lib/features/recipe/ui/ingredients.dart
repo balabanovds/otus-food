@@ -31,7 +31,7 @@ class _IngredientsState extends State<Ingredients> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      // crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Text(
           'Ингредиенты',
@@ -64,7 +64,30 @@ class _IngredientsState extends State<Ingredients> {
                   children: _ingredients.map((e) => _IngredientRow(item: e)).toList(),
                 )
               : const CircularProgressIndicator(),
-        )
+        ),
+        const SizedBox(height: 19),
+        SizedBox(
+          height: 48,
+          width: 232,
+          child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              shape: const StadiumBorder(),
+              side: const BorderSide(width: 2, color: Color.fromARGB(255, 22, 89, 50)),
+              backgroundColor: Colors.white,
+            ),
+            onPressed: () {},
+            child: const Text(
+              'Проверить наличие',
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Color.fromARGB(255, 22, 89, 50),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 18),
       ],
     );
   }

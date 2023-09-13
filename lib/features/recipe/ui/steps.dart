@@ -32,7 +32,7 @@ class _StepsViewState extends State<StepsView> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: _steps.isEmpty ? CrossAxisAlignment.center : CrossAxisAlignment.stretch,
+      // crossAxisAlignment: _steps.isEmpty ? CrossAxisAlignment.center : CrossAxisAlignment.stretch,
       children: [
         const Text(
           'Шаги приготовления',
@@ -49,7 +49,35 @@ class _StepsViewState extends State<StepsView> {
             ? const CircularProgressIndicator()
             : Column(
                 children: _steps.map((e) => StepView(item: e)).toList(),
-              )
+              ),
+        const SizedBox(
+          height: 27,
+        ),
+        SizedBox(
+          height: 48,
+          width: 232,
+          child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              shape: const StadiumBorder(),
+              side: const BorderSide(width: 2, color: Color.fromARGB(255, 22, 89, 50)),
+              backgroundColor: const Color.fromARGB(255, 22, 89, 50),
+              foregroundColor: Colors.white,
+            ),
+            onPressed: () {},
+            child: const Text(
+              'Начать готовить',
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 32,
+        )
       ],
     );
   }
@@ -115,12 +143,12 @@ class _StepViewState extends State<StepView> {
                 ),
               ),
               const Flexible(
-                flex: 6,
+                flex: 4,
                 fit: FlexFit.tight,
                 child: SizedBox(),
               ),
               Flexible(
-                flex: 8,
+                flex: 10,
                 fit: FlexFit.tight,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

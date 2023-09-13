@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:otus_food/features/recipe/ui/comments.dart';
 
 import '../domain/model/recipe.dart';
 import 'steps.dart';
 import 'ingredients.dart';
 
 const Color titleTextColor = Color.fromARGB(255, 22, 89, 50);
+
+// class RecipePage extends StatelessWidget {
+//   const RecipePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const CustomScrollView(
+//       slivers: [SliverList(delegate: Sliver())],
+//     );
+//   }
+// }
 
 class RecipeView extends StatefulWidget {
   final Recipe item;
@@ -60,6 +72,8 @@ class _RecipeViewState extends State<RecipeView> {
               height: 20,
             ),
             StepsView(id: widget.item.id),
+            const Divider(color: Color.fromARGB(255, 121, 118, 118)),
+            CommentsView(id: widget.item.id),
           ],
         ),
       ),

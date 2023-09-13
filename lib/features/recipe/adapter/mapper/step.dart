@@ -1,5 +1,5 @@
-import 'package:otus_food/features/recipe/adapter/dto/step.dart';
-import 'package:otus_food/features/recipe/domain/model/step.dart';
+import '../dto/step.dart';
+import '../../domain/model/step.dart';
 
 class StepMapper {
   static Step fromAPI(StepDto item) {

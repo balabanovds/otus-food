@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Recipe {
-  final int id;
+class User {
   final String _imgType;
   final String _imgPath;
-  final String title;
-  final String duration;
+  final String name;
 
-  Recipe(this.id, this._imgType, this._imgPath, this.title, this.duration);
+  User(this._imgType, this._imgPath, this.name);
 
   Image image(BoxFit fit) {
     switch (_imgType) {

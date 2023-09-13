@@ -1,6 +1,9 @@
 import 'dart:convert';
 import "dart:async";
 import 'package:flutter/services.dart';
+import 'package:otus_food/features/recipe/adapter/dto/comment.dart';
+import 'package:otus_food/features/recipe/adapter/mapper/comment.dart';
+import 'package:otus_food/features/recipe/domain/model/comment.dart';
 
 import '../../adapter/mapper/step.dart';
 import '../../adapter/dto/ingredient.dart';
@@ -48,6 +51,19 @@ class JsonProvider implements Provider {
         .singleWhere((e) => e.id == id)
         .items
         .map((e) => StepMapper.fromAPI(e))
+        .toList();
+  }
+
+  @override
+  Future<List<Comment>> comments(int recipeID) async {
+    final String response = await rootBundle.loadString('assets/mock/recipes/comments.json');
+    final data = json.decode(response);
+    final List<dynamic> items = data;
+
+    return items
+        .map((e) => CommentDto.fromJson(e))
+        .where((e) => e.recipeID == recipeID)
+        .map((e) => CommentMapper.fromAPI(e))
         .toList();
   }
 }
