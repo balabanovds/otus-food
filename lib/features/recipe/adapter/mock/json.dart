@@ -16,7 +16,7 @@ import '../../domain/model/step.dart';
 class JsonProvider implements Provider {
   @override
   Future<List<Recipe>> recipes() async {
-    final String response = await rootBundle.loadString('assets/data/recipes.json');
+    final String response = await rootBundle.loadString('assets/mock/recipes/list.json');
     final data = json.decode(response);
     final List<dynamic> items = data;
 
@@ -25,7 +25,7 @@ class JsonProvider implements Provider {
 
   @override
   Future<List<Ingredient>> ingredients(int id) async {
-    final String response = await rootBundle.loadString('assets/data/recipes_ingredients.json');
+    final String response = await rootBundle.loadString('assets/mock/recipes/ingredients.json');
     final data = json.decode(response);
     final List<dynamic> items = data;
 
@@ -39,7 +39,7 @@ class JsonProvider implements Provider {
 
   @override
   Future<List<Step>> steps(int id) async {
-    final String response = await rootBundle.loadString('assets/data/recipes_steps.json');
+    final String response = await rootBundle.loadString('assets/mock/recipes/steps.json');
     final data = json.decode(response);
     final List<dynamic> items = data;
 
