@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/ui/comments.dart';
+import 'package:otus_food/features/recipe/view/comments.dart';
 
 import '../domain/model/recipe.dart';
 import 'steps.dart';

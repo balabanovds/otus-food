@@ -14,6 +14,7 @@ class CommentsView extends StatefulWidget {
 
 class _CommentsViewState extends State<CommentsView> {
   List<Comment> _items = [];
+  final _commentCtrl = TextEditingController();
 
   @override
   void initState() {
@@ -47,7 +48,35 @@ class _CommentsViewState extends State<CommentsView> {
           const SizedBox(
             height: 48,
           ),
-          TextField(), // TODO complete me
+          TextFormField(
+            maxLines: 2,
+            controller: _commentCtrl,
+            decoration: InputDecoration(
+              labelText: 'оставить комментарий',
+              labelStyle: const TextStyle(
+                color: Color.fromARGB(255, 194, 194, 194),
+                fontFamily: 'Roboto',
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+              alignLabelWithHint: true,
+              suffixIcon: IconButton(
+                iconSize: 24,
+                color: const Color.fromARGB(255, 22, 89, 50),
+                onPressed: () {},
+                icon: const Icon(Icons.image),
+              ),
+              enabledBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                borderSide: BorderSide(color: Color.fromARGB(255, 22, 89, 50), width: 2.0),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5)),
+                borderSide: BorderSide(color: Color.fromARGB(255, 22, 89, 50), width: 2.0),
+              ),
+            ),
+            keyboardType: TextInputType.emailAddress,
+          ),
         ],
       ),
     );
@@ -123,7 +152,7 @@ class _CommentView extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               SizedBox(

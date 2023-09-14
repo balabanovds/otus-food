@@ -1,7 +1,7 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/ui/recipe.dart';
+import 'package:otus_food/features/recipe/view/recipe.dart';
 
 import '../domain/repository/provider.dart';
 import '../domain/model/recipe.dart';

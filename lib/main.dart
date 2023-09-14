@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/ui/list.dart';
+import 'package:otus_food/features/recipe/view/list.dart';
 
 void main() {
   runApp(const MyApp());
