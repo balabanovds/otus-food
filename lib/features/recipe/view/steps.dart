@@ -33,14 +33,17 @@ class _StepsViewState extends State<StepsView> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // crossAxisAlignment: _steps.isEmpty ? CrossAxisAlignment.center : CrossAxisAlignment.stretch,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text(
-          'Шаги приготовления',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 16,
-            color: titleTextColor,
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Шаги приготовления',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 16,
+              color: titleTextColor,
+            ),
           ),
         ),
         const SizedBox(

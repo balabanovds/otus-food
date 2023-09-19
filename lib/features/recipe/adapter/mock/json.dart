@@ -1,7 +1,6 @@
 import 'dart:convert';
 import "dart:async";
 import 'package:flutter/services.dart';
-import 'package:otus_food/features/recipe/adapter/dto/comment.dart';
 import 'package:otus_food/features/recipe/adapter/dto/measure_unit.dart';
 import 'package:otus_food/features/recipe/adapter/dto/recipe_step.dart';
 import 'package:otus_food/features/recipe/adapter/dto/user.dart';

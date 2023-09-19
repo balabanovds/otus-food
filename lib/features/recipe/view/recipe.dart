@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:otus_food/features/recipe/view/bookmark.dart';
 import 'package:otus_food/features/recipe/view/comments.dart';
-
-import '../domain/model/recipe.dart';
-import 'steps.dart';
-import 'ingredients.dart';
+import 'package:otus_food/features/recipe/domain/model/recipe.dart';
+import 'package:otus_food/features/recipe/view/steps.dart';
+import 'package:otus_food/features/recipe/view/ingredients.dart';
 
 const Color titleTextColor = Color.fromARGB(255, 22, 89, 50);
-
-// class RecipePage extends StatelessWidget {
-//   const RecipePage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const CustomScrollView(
-//       slivers: [SliverList(delegate: Sliver())],
-//     );
-//   }
-// }
 
 class RecipeView extends StatefulWidget {
   final Recipe item;
@@ -169,15 +159,27 @@ class _RecipeViewImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> children = [
+      Positioned.fill(
+        top: -120,
+        child: item.image(BoxFit.cover),
+      ),
+    ];
+
+    if (item.userIDFavorites.isNotEmpty) {
+      children.add(
+        Positioned(
+          right: 0,
+          bottom: 17,
+          child: Bookmark(count: item.userIDFavorites.length),
+        ),
+      );
+    }
+
     return SizedBox(
       height: 220,
       child: Stack(
-        children: [
-          Positioned.fill(
-            top: -120,
-            child: item.image(BoxFit.cover),
-          )
-        ],
+        children: children,
       ),
     );
   }

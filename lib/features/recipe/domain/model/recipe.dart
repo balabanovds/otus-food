@@ -6,8 +6,9 @@ class Recipe {
   final String _imgPath;
   final String title;
   final Duration _duration;
+  final List<int> userIDFavorites;
 
-  Recipe(this.id, this._imgType, this._imgPath, this.title, this._duration);
+  Recipe(this.id, this._imgType, this._imgPath, this.title, this._duration, this.userIDFavorites);
 
   String get duration => _printHoursMinutes(_duration);
 

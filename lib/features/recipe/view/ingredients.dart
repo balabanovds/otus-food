@@ -32,14 +32,17 @@ class _IngredientsState extends State<Ingredients> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // crossAxisAlignment: CrossAxisAlignment.stretch,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text(
-          'Ингредиенты',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 16,
-            color: titleTextColor,
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Ингредиенты',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontSize: 16,
+              color: titleTextColor,
+            ),
           ),
         ),
         const SizedBox(

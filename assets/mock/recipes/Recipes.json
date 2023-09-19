@@ -207,7 +207,18 @@
                 }
             }
         ],
-        "favoriteRecipes": null,
+        "favoriteRecipes": [
+            {
+                "__entity": "Favorite",
+                "id": 1,
+                "recipe": {
+                    "id": 1
+                },
+                "user": {
+                    "id": 1
+                }
+            }
+        ],
         "comments": [
             {
                 "__entity": "Comment",

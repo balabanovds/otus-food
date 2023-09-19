@@ -3,7 +3,7 @@
         "__entity": "RecipeStep",
         "id": 1,
         "name": "В маленькой кастрюле соедините соевый соус, 6 столовых ложек воды, мёд, сахар, измельчённый чеснок, имбирь и лимонный сок.",
-        "duration": 353,
+        "duration": 330,
         "recipeStepLinks": [
             {
                 "__entity": "RecipeStepLink",
