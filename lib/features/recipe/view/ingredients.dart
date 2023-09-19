@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../domain/repository/provider.dart';
-import '../domain/model/ingredient.dart';
-import 'recipe.dart';
+import 'package:otus_food/features/recipe/domain/repository/init.dart';
+import 'package:otus_food/features/recipe/domain/repository/provider.dart';
+import 'package:otus_food/features/recipe/domain/model/ingredient.dart';
+import 'package:otus_food/features/recipe/view/recipe.dart';
 
 class Ingredients extends StatefulWidget {
   final int id;

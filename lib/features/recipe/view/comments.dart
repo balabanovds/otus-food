@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../domain/model/comment.dart';
-import '../domain/repository/provider.dart';
+import 'package:otus_food/features/recipe/domain/repository/init.dart';
+import 'package:otus_food/features/recipe/domain/model/comment.dart';
+import 'package:otus_food/features/recipe/domain/repository/provider.dart';
 
 class CommentsView extends StatefulWidget {
   final int id;
@@ -130,7 +131,7 @@ class _CommentView extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    item.createdAtDate,
+                    item.createdAt,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 194, 194, 194),
                       fontFamily: 'Roboto',

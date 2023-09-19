@@ -1,51 +1,255 @@
 [
     {
+        "__entity": "Ingredient",
         "id": 1,
-        "ingredients": [
+        "name": "Соевый соус",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 1
+        },
+        "recipeIngredients": [
             {
-                "name": "Соевый соус",
-                "value": "8 ст. ложек"
-            },
-            {
-                "name": "Вода",
-                "value": "8 ст. ложек"
-            },
-            {
-                "name": "Мёд",
-                "value": "3 ст. ложки"
-            },
-            {
-                "name": "Коричневый сахар",
-                "value": "2 ст. ложки"
-            },
-            {
-                "name": "Чеснок",
-                "value": "3 зубчика"
-            },
-            {
-                "name": "Тёртый свежий имбирь",
-                "value": "1 ст. ложка"
-            },
-            {
-                "name": "Лимонный сок",
-                "value": "1¹⁄₂ ст. ложки"
-            },
-            {
-                "name": "Кукурузный крахмал",
-                "value": "1 ст. ложка"
-            },
-            {
-                "name": "Растительное масло",
-                "value": "1 ч. ложка"
-            },
-            {
-                "name": "Филе лосося или сёмги",
-                "value": "680 г"
-            },
-            {
-                "name": "Кунжут",
-                "value": "по вкусу"
+                "__entity": "RecipeIngredient",
+                "id": 1,
+                "count": 8,
+                "ingredient": {
+                    "id": 1
+                },
+                "recipe": {
+                    "id": 1
+                }
             }
-        ]
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 2,
+        "name": "Вода",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 1
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 2,
+                "count": 8,
+                "ingredient": {
+                    "id": 2
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 3,
+        "name": "Мёд",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 1
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 3,
+                "count": 3,
+                "ingredient": {
+                    "id": 3
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 4,
+        "name": "Коричневый сахар",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 1
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 4,
+                "count": 2,
+                "ingredient": {
+                    "id": 4
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 5,
+        "name": "Чеснок",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 3
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 5,
+                "count": 3,
+                "ingredient": {
+                    "id": 5
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 6,
+        "name": "Тёртый свежий имбирь",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 1
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 6,
+                "count": 1,
+                "ingredient": {
+                    "id": 6
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 7,
+        "name": "Лимонный сок",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 1
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 7,
+                "count": 1.5,
+                "ingredient": {
+                    "id": 7
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 8,
+        "name": "Кукурузный крахмал",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 1
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 8,
+                "count": 1,
+                "ingredient": {
+                    "id": 8
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 9,
+        "name": "Растительное масло",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 2
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 9,
+                "count": 1,
+                "ingredient": {
+                    "id": 9
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 10,
+        "name": "Филе лосося или сёмги",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 4
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 10,
+                "count": 680,
+                "ingredient": {
+                    "id": 10
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
+    },
+    {
+        "__entity": "Ingredient",
+        "id": 11,
+        "name": "Кунжут",
+        "caloriesForUnit": 0,
+        "measureUnit": {
+            "id": 5
+        },
+        "recipeIngredients": [
+            {
+                "__entity": "RecipeIngredient",
+                "id": 11,
+                "count": 0,
+                "ingredient": {
+                    "id": 11
+                },
+                "recipe": {
+                    "id": 1
+                }
+            }
+        ],
+        "ingredientFreezer": null
     }
 ]

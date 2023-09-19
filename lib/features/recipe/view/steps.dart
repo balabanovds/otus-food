@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'recipe.dart';
-import '../domain/repository/provider.dart';
-import '../domain/model/step.dart' as model;
+import 'package:otus_food/features/recipe/domain/repository/init.dart';
+import 'package:otus_food/features/recipe/view/recipe.dart';
+import 'package:otus_food/features/recipe/domain/repository/provider.dart';
+import 'package:otus_food/features/recipe/domain/model/step.dart' as model;
 
 class StepsView extends StatefulWidget {
   final int id;

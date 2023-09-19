@@ -1,0 +1,12 @@
+[
+    {
+        "__entity": "Favorite",
+        "id": 1,
+        "recipe": {
+            "id": 1
+        },
+        "user": {
+            "id": 1
+        }
+    }
+]

@@ -1,10 +1,10 @@
 import "dart:async";
-
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/view/recipe.dart';
 
-import '../domain/repository/provider.dart';
-import '../domain/model/recipe.dart';
+import 'package:otus_food/features/recipe/domain/repository/init.dart';
+import 'package:otus_food/features/recipe/view/recipe.dart';
+import 'package:otus_food/features/recipe/domain/repository/provider.dart';
+import 'package:otus_food/features/recipe/domain/model/recipe.dart';
 
 const borderRadius = 10.0;
 

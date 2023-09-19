@@ -1,15 +1,15 @@
 [
     {
+        "__entity": "Comment",
         "id": 1,
-        "recipe_id": 1,
-        "user": {
-            "img_type": "asset",
-            "img_path": "assets/img/comments/01_avatar.jpeg",
-            "name": "anna_obraztsova"
-        },
-        "created_at": "25.05.2022",
         "text": "Я не большой любитель рыбы, но решила приготовить по этому рецепту и просто влюбилась!",
-        "img_type": "asset",
-        "img_path": "assets/img/comments/01_pic.jpeg"
+        "photo": "assets/img/comments/01_pic.jpeg",
+        "datetime": "2022-05-25T00:00:00.000Z",
+        "recipe": {
+            "id": 1
+        },
+        "user": {
+            "id": 1
+        }
     }
 ]

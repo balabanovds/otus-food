@@ -1,29 +1,21 @@
 class CommentDto {
   final int id;
-  final int recipeID;
-  final UserDto user;
-  final String createdAt;
   final String text;
-  final String imgType;
-  final String imgPath;
+  final String photo;
+  final DateTime datetime;
+  final int userID;
+  final int recipeID;
 
-  CommentDto.fromJson(Map<String, dynamic> data)
-      : id = data['id'],
-        recipeID = data['recipe_id'],
-        user = UserDto.fromJson(data['user']),
-        createdAt = data['created_at'],
-        text = data['text'],
-        imgType = data['img_type'],
-        imgPath = data['img_path'];
-}
+  CommentDto(this.id, this.text, this.photo, this.datetime, this.userID, this.recipeID);
 
-class UserDto {
-  final String imgType;
-  final String imgPath;
-  final String name;
+  factory CommentDto.fromJson(Map<String, dynamic> data) {
+    final int id = data['id'];
+    final String text = data['text'];
+    final String photo = data['photo'];
+    final DateTime datetime = DateTime.tryParse(data['datetime'] as String) ?? DateTime.utc(1970);
+    final int userID = data['user']['id'];
+    final int recipeID = data['recipe']['id'];
 
-  UserDto.fromJson(Map<String, dynamic> data)
-      : imgType = data['img_type'],
-        imgPath = data['img_path'],
-        name = data['name'];
+    return CommentDto(id, text, photo, datetime, userID, recipeID);
+  }
 }

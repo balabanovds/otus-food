@@ -1,0 +1,13 @@
+[
+    {
+        "__entity": "Freezer",
+        "id": 1,
+        "count": 1,
+        "user": {
+            "id": 1
+        },
+        "ingredient": {
+            "id": 1
+        }
+    }
+]

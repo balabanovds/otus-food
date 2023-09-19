@@ -1,0 +1,27 @@
+[
+    {
+        "__entity": "User",
+        "id": 1,
+        "login": "anna_obraztsova",
+        "password": "",
+        "token": "",
+        "avatar": "assets/img/comments/01_avatar.jpeg",
+        "userFreezer": null,
+        "favoriteRecipes": null,
+        "comments": [
+            {
+                "__entity": "Comment",
+                "id": 1,
+                "text": "Я не большой любитель рыбы, но решила приготовить по этому рецепту и просто влюбилась!",
+                "photo": "assets/img/comments/01_pic.jpeg",
+                "datetime": "2022-05-25T00:00:00.000Z",
+                "recipe": {
+                    "id": 1
+                },
+                "user": {
+                    "id": 1
+                }
+            }
+        ]
+    }
+]

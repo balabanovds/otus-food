@@ -1,0 +1,123 @@
+[
+    {
+        "__entity": "RecipeIngredient",
+        "id": 1,
+        "count": 8,
+        "ingredient": {
+            "id": 1
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 2,
+        "count": 8,
+        "ingredient": {
+            "id": 2
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 3,
+        "count": 3,
+        "ingredient": {
+            "id": 3
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 4,
+        "count": 2,
+        "ingredient": {
+            "id": 4
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 5,
+        "count": 3,
+        "ingredient": {
+            "id": 5
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 6,
+        "count": 1,
+        "ingredient": {
+            "id": 6
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 7,
+        "count": 1.5,
+        "ingredient": {
+            "id": 7
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 8,
+        "count": 1,
+        "ingredient": {
+            "id": 8
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 9,
+        "count": 1,
+        "ingredient": {
+            "id": 9
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 10,
+        "count": 680,
+        "ingredient": {
+            "id": 10
+        },
+        "recipe": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeIngredient",
+        "id": 11,
+        "count": 0,
+        "ingredient": {
+            "id": 11
+        },
+        "recipe": {
+            "id": 1
+        }
+    }
+]
