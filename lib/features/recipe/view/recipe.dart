@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:otus_food/features/recipe/view/bookmark.dart';
 import 'package:otus_food/features/recipe/view/comments.dart';
 import 'package:otus_food/features/recipe/domain/model/recipe.dart';
