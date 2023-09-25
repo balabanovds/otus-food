@@ -21,7 +21,8 @@ class JsonProvider implements Provider {
 
   @override
   Future<List<Recipe>> recipes() async {
-    final String response = await rootBundle.loadString('assets/mock/recipes/Recipes.json');
+    final String response =
+        await rootBundle.loadString('assets/mock/recipes/Recipes.json');
     return (json.decode(response) as List<dynamic>)
         .map((e) => RecipeDto.fromJson(e))
         .map((e) => RecipeMapper.fromAPI(e))
@@ -34,7 +35,8 @@ class JsonProvider implements Provider {
   }
 
   Future<RecipeDto> _recipeDto(int recipeID) async {
-    final String response = await rootBundle.loadString('assets/mock/recipes/Recipes.json');
+    final String response =
+        await rootBundle.loadString('assets/mock/recipes/Recipes.json');
     return (json.decode(response) as List<dynamic>)
         .map((e) => RecipeDto.fromJson(e))
         .firstWhere((e) => e.id == recipeID);
@@ -42,12 +44,16 @@ class JsonProvider implements Provider {
 
   @override
   Future<List<Ingredient>> ingredients(int id) async {
-    final String ingRes = await rootBundle.loadString('assets/mock/recipes/Ingredients.json');
+    final String ingRes =
+        await rootBundle.loadString('assets/mock/recipes/Ingredients.json');
     final Iterable<IngredientDto> ingIter =
-        (json.decode(ingRes) as List<dynamic>).map((e) => IngredientDto.fromJson(e));
+        (json.decode(ingRes) as List<dynamic>)
+            .map((e) => IngredientDto.fromJson(e));
 
-    final String muRes = await rootBundle.loadString('assets/mock/recipes/MeasureUnit.json');
-    final muIter = (json.decode(muRes) as List<dynamic>).map((e) => MeasureUnitDto.fromJson(e));
+    final String muRes =
+        await rootBundle.loadString('assets/mock/recipes/MeasureUnit.json');
+    final muIter = (json.decode(muRes) as List<dynamic>)
+        .map((e) => MeasureUnitDto.fromJson(e));
     final Map<int, MeasureUnitDto> muMap = {for (var e in muIter) e.id: e};
 
     return ingIter.map((e) {
@@ -61,7 +67,8 @@ class JsonProvider implements Provider {
       final mu = muMap[e.measureUnitID]!;
 
       if (e.recipeIngredients.isEmpty) {
-        throw Exception('ingredient entity has empty recipeIngredients, id=${e.id}');
+        throw Exception(
+            'ingredient entity has empty recipeIngredients, id=${e.id}');
       }
 
       return IngredientMapper.fromAPI(
@@ -73,8 +80,10 @@ class JsonProvider implements Provider {
 
   @override
   Future<List<Step>> steps(int recipeID) async {
-    final String stepRes = await rootBundle.loadString('assets/mock/recipes/RecipeSteps.json');
-    final stepIter = (json.decode(stepRes) as List<dynamic>).map((e) => RecipeStepDto.fromJson(e));
+    final String stepRes =
+        await rootBundle.loadString('assets/mock/recipes/RecipeSteps.json');
+    final stepIter = (json.decode(stepRes) as List<dynamic>)
+        .map((e) => RecipeStepDto.fromJson(e));
     final Map<int, RecipeStepDto> stepMap = {for (var e in stepIter) e.id: e};
 
     final res = await _recipeDto(recipeID);
@@ -89,8 +98,10 @@ class JsonProvider implements Provider {
 
   @override
   Future<List<Comment>> comments(int recipeID) async {
-    final String userRes = await rootBundle.loadString('assets/mock/recipes/Users.json');
-    final userIter = (json.decode(userRes) as List<dynamic>).map((e) => UserDto.fromJson(e));
+    final String userRes =
+        await rootBundle.loadString('assets/mock/recipes/Users.json');
+    final userIter =
+        (json.decode(userRes) as List<dynamic>).map((e) => UserDto.fromJson(e));
     final Map<int, UserDto> userMap = {for (var e in userIter) e.id: e};
 
     final res = await _recipeDto(recipeID);

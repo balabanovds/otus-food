@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:otus_food/features/recipe/domain/repository/init.dart';
 import 'package:otus_food/features/recipe/domain/model/comment.dart';
-import 'package:otus_food/features/recipe/domain/repository/provider.dart';
+import 'package:otus_food/features/recipe/view/elements/error.dart';
 
 class CommentsView extends StatefulWidget {
   final int id;
@@ -14,20 +14,13 @@ class CommentsView extends StatefulWidget {
 }
 
 class _CommentsViewState extends State<CommentsView> {
-  List<Comment> _items = [];
+  late Future<List<Comment>> _futureComments;
   final _commentCtrl = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    loadData(provider);
-  }
-
-  Future<void> loadData(CommentsProvider provider) async {
-    var data = await provider.comments(widget.id);
-    setState(() {
-      _items = data;
-    });
+    _futureComments = provider.comments(widget.id);
   }
 
   @override
@@ -41,11 +34,26 @@ class _CommentsViewState extends State<CommentsView> {
       ),
       child: Column(
         children: [
-          _items.isEmpty
-              ? const SizedBox()
-              : Column(
-                  children: _items.map((e) => _CommentView(item: e)).toList(),
-                ),
+          FutureBuilder(
+            future: _futureComments,
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return LoadDataError(reason: snapshot.error.toString());
+              }
+
+              if (!snapshot.hasData && !snapshot.hasError) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+
+              return Column(
+                children: snapshot.requireData
+                    .map((e) => _CommentView(item: e))
+                    .toList(),
+              );
+            },
+          ),
           const SizedBox(
             height: 48,
           ),
@@ -69,11 +77,13 @@ class _CommentsViewState extends State<CommentsView> {
               ),
               enabledBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
-                borderSide: BorderSide(color: Color.fromARGB(255, 22, 89, 50), width: 2.0),
+                borderSide: BorderSide(
+                    color: Color.fromARGB(255, 22, 89, 50), width: 2.0),
               ),
               focusedBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
-                borderSide: BorderSide(color: Color.fromARGB(255, 22, 89, 50), width: 2.0),
+                borderSide: BorderSide(
+                    color: Color.fromARGB(255, 22, 89, 50), width: 2.0),
               ),
             ),
             keyboardType: TextInputType.emailAddress,

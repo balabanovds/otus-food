@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:otus_food/features/recipe/domain/repository/init.dart';
+import 'package:otus_food/features/recipe/view/elements/error.dart';
 import 'package:otus_food/features/recipe/view/recipe.dart';
-import 'package:otus_food/features/recipe/domain/repository/provider.dart';
 import 'package:otus_food/features/recipe/domain/model/step.dart' as model;
 
 class StepsView extends StatefulWidget {
@@ -15,19 +15,12 @@ class StepsView extends StatefulWidget {
 }
 
 class _StepsViewState extends State<StepsView> {
-  List<model.Step> _steps = [];
+  late Future<List<model.Step>> _futureSteps;
 
   @override
   void initState() {
     super.initState();
-    loadData(provider);
-  }
-
-  Future<void> loadData(StepsProvider provider) async {
-    var data = await provider.steps(widget.id);
-    setState(() {
-      _steps = data;
-    });
+    _futureSteps = provider.steps(widget.id);
   }
 
   @override
@@ -49,11 +42,25 @@ class _StepsViewState extends State<StepsView> {
         const SizedBox(
           height: 20,
         ),
-        _steps.isEmpty
-            ? const CircularProgressIndicator()
-            : Column(
-                children: _steps.map((e) => StepView(item: e)).toList(),
-              ),
+        FutureBuilder(
+          future: _futureSteps,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return LoadDataError(reason: snapshot.error.toString());
+            }
+
+            if (!snapshot.hasData && !snapshot.hasError) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            return Column(
+              children:
+                  snapshot.requireData.map((e) => StepView(item: e)).toList(),
+            );
+          },
+        ),
         const SizedBox(
           height: 27,
         ),
@@ -63,7 +70,8 @@ class _StepsViewState extends State<StepsView> {
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
               shape: const StadiumBorder(),
-              side: const BorderSide(width: 2, color: Color.fromARGB(255, 22, 89, 50)),
+              side: const BorderSide(
+                  width: 2, color: Color.fromARGB(255, 22, 89, 50)),
               backgroundColor: const Color.fromARGB(255, 22, 89, 50),
               foregroundColor: Colors.white,
             ),
@@ -168,7 +176,9 @@ class _StepViewState extends State<StepView> {
                       alignment: Alignment.center,
                       iconSize: 30,
                       color: const Color.fromARGB(255, 121, 118, 118),
-                      icon: _done ? const Icon(Icons.check_box_outlined) : const Icon(Icons.check_box_outline_blank),
+                      icon: _done
+                          ? const Icon(Icons.check_box_outlined)
+                          : const Icon(Icons.check_box_outline_blank),
                     ),
                     const SizedBox(
                       height: 14,

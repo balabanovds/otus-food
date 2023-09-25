@@ -2,8 +2,8 @@ import "dart:async";
 import 'package:flutter/material.dart';
 
 import 'package:otus_food/features/recipe/domain/repository/init.dart';
+import 'package:otus_food/features/recipe/view/elements/error.dart';
 import 'package:otus_food/features/recipe/view/recipe.dart';
-import 'package:otus_food/features/recipe/domain/repository/provider.dart';
 import 'package:otus_food/features/recipe/domain/model/recipe.dart';
 
 const borderRadius = 10.0;
@@ -16,19 +16,12 @@ class RecipesList extends StatefulWidget {
 }
 
 class _RecipesListState extends State<RecipesList> {
-  late List<Recipe> _list = [];
+  late Future<List<Recipe>> _futureList;
 
   @override
   initState() {
     super.initState();
-    loadData(provider);
-  }
-
-  Future<void> loadData(RecipeListProvider provider) async {
-    var data = await provider.recipes();
-    setState(() {
-      _list = data;
-    });
+    _futureList = provider.recipes();
   }
 
   @override
@@ -39,21 +32,32 @@ class _RecipesListState extends State<RecipesList> {
         left: 16,
         right: 16,
       ),
-      child: _list.isNotEmpty
-          ? ListView.separated(
-              physics: const BouncingScrollPhysics(),
-              itemCount: _list.length,
-              itemBuilder: (context, index) {
-                return _RecipesListEntry(_list[index]);
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 16,
-                );
-              },
-              clipBehavior: Clip.none,
-            )
-          : Container(),
+      child: FutureBuilder(
+        future: _futureList,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return LoadDataError(reason: snapshot.error.toString());
+          }
+
+          if (!snapshot.hasData && !snapshot.hasError) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          final data = snapshot.requireData;
+
+          return ListView.separated(
+            itemCount: data.length,
+            itemBuilder: (context, idx) {
+              return _RecipesListEntry(data[idx]);
+            },
+            separatorBuilder: (context, idx) {
+              return const SizedBox(height: 16);
+            },
+          );
+        },
+      ),
     );
   }
 }

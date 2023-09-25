@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:otus_food/features/recipe/domain/repository/init.dart';
-import 'package:otus_food/features/recipe/domain/repository/provider.dart';
 import 'package:otus_food/features/recipe/domain/model/ingredient.dart';
+import 'package:otus_food/features/recipe/view/elements/error.dart';
 import 'package:otus_food/features/recipe/view/recipe.dart';
 
 class Ingredients extends StatefulWidget {
@@ -14,19 +14,12 @@ class Ingredients extends StatefulWidget {
 }
 
 class _IngredientsState extends State<Ingredients> {
-  List<Ingredient> _ingredients = [];
+  late Future<List<Ingredient>> _futureIngredients;
 
   @override
   void initState() {
     super.initState();
-    loadData(provider);
-  }
-
-  Future<void> loadData(IngredientsProvider provider) async {
-    var data = await provider.ingredients(widget.id);
-    setState(() {
-      _ingredients = data;
-    });
+    _futureIngredients = provider.ingredients(widget.id);
   }
 
   @override
@@ -63,11 +56,26 @@ class _IngredientsState extends State<Ingredients> {
             ),
             borderRadius: BorderRadius.circular(5),
           ),
-          child: _ingredients.isNotEmpty
-              ? Column(
-                  children: _ingredients.map((e) => _IngredientRow(item: e)).toList(),
-                )
-              : const CircularProgressIndicator(),
+          child: FutureBuilder(
+            future: _futureIngredients,
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return LoadDataError(reason: snapshot.error.toString());
+              }
+
+              if (!snapshot.hasData && !snapshot.hasError) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+
+              return Column(
+                children: snapshot.requireData
+                    .map((e) => _IngredientRow(item: e))
+                    .toList(),
+              );
+            },
+          ),
         ),
         const SizedBox(height: 19),
         SizedBox(
@@ -76,7 +84,8 @@ class _IngredientsState extends State<Ingredients> {
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
               shape: const StadiumBorder(),
-              side: const BorderSide(width: 2, color: Color.fromARGB(255, 22, 89, 50)),
+              side: const BorderSide(
+                  width: 2, color: Color.fromARGB(255, 22, 89, 50)),
               backgroundColor: Colors.white,
             ),
             onPressed: () {},
