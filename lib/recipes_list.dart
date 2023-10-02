@@ -1,11 +1,11 @@
 import "dart:async";
 
 import 'package:flutter/material.dart';
-import 'package:otus_food/repo/entity.dart';
-import 'package:otus_food/repo/provider.dart';
-import 'package:otus_food/repo/provider_json.dart';
+import 'package:otus_food/colors.dart';
+import 'package:otus_food/main.dart';
+import 'package:otus_food/model/recipe.dart';
 
-const borderRadius = 10.0;
+const _borderRadius = 10.0;
 
 class RecipesList extends StatefulWidget {
   const RecipesList({super.key});
@@ -15,19 +15,12 @@ class RecipesList extends StatefulWidget {
 }
 
 class _RecipesListState extends State<RecipesList> {
-  late List<Recipe> _list = [];
+  late Future<List<Recipe>> futureList;
 
   @override
   initState() {
     super.initState();
-    loadData(JsonRecipesProvider());
-  }
-
-  Future<void> loadData(RecipesProvider provider) async {
-    var data = await provider.recipes();
-    setState(() {
-      _list = data;
-    });
+    futureList = recipesProvider.recipes();
   }
 
   @override
@@ -38,21 +31,34 @@ class _RecipesListState extends State<RecipesList> {
         left: 16,
         right: 16,
       ),
-      child: _list.isNotEmpty
-          ? ListView.separated(
-              physics: const BouncingScrollPhysics(),
-              itemCount: _list.length,
-              itemBuilder: (context, index) {
-                return _RecipesListEntry(_list[index]);
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 16,
-                );
-              },
-              clipBehavior: Clip.none,
-            )
-          : Container(),
+      child: FutureBuilder(
+        future: futureList,
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return SnackBar(content: Text('Error: ${snapshot.error}'));
+          }
+
+          if (!snapshot.hasData && !snapshot.hasError) {
+            return const CircularProgressIndicator();
+          }
+
+          final list = snapshot.requireData;
+
+          return ListView.separated(
+            physics: const BouncingScrollPhysics(),
+            itemCount: list.length,
+            itemBuilder: (context, index) {
+              return _RecipesListEntry(list[index]);
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(
+                height: 16,
+              );
+            },
+            clipBehavior: Clip.none,
+          );
+        },
+      ),
     );
   }
 }
@@ -67,10 +73,10 @@ class _RecipesListEntry extends StatelessWidget {
     return Container(
       height: 136,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
+        borderRadius: BorderRadius.all(Radius.circular(_borderRadius)),
         boxShadow: [
           BoxShadow(
-            color: Color.fromARGB(255, 208, 208, 208),
+            color: shadowColor,
             spreadRadius: 5,
             blurRadius: 7,
             offset: Offset(0, 3),
@@ -130,7 +136,7 @@ class _RecipesListEntry extends StatelessWidget {
                         Text(
                           item.duration,
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 46, 204, 113),
+                            color: textColorDuration,
                             fontFamily: 'Roboto',
                             fontSize: 16,
                             fontWeight: FontWeight.w400,

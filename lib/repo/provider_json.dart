@@ -1,4 +1,6 @@
+import 'package:otus_food/model/recipe.dart';
 import 'package:otus_food/repo/entity.dart';
+import 'package:otus_food/repo/mapper.dart';
 import 'package:otus_food/repo/provider.dart';
 import 'dart:convert';
 import "dart:async";
@@ -11,6 +13,9 @@ class JsonRecipesProvider implements RecipesProvider {
     final data = json.decode(response);
     final List<dynamic> items = data['items'];
 
-    return items.map((e) => Recipe.fromJson(e)).toList();
+    return items
+        .map((e) => RecipeDto.fromJson(e))
+        .map((e) => RecipeMapper.fromAPI(e))
+        .toList();
   }
 }
