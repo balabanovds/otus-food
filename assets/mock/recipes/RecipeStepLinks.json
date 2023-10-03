@@ -1,0 +1,79 @@
+[
+    {
+        "__entity": "RecipeStepLink",
+        "id": 1,
+        "number": 1,
+        "recipe": {
+            "id": 1
+        },
+        "step": {
+            "id": 1
+        }
+    },
+    {
+        "__entity": "RecipeStepLink",
+        "id": 2,
+        "number": 2,
+        "recipe": {
+            "id": 1
+        },
+        "step": {
+            "id": 2
+        }
+    },
+    {
+        "__entity": "RecipeStepLink",
+        "id": 3,
+        "number": 3,
+        "recipe": {
+            "id": 1
+        },
+        "step": {
+            "id": 3
+        }
+    },
+    {
+        "__entity": "RecipeStepLink",
+        "id": 4,
+        "number": 4,
+        "recipe": {
+            "id": 1
+        },
+        "step": {
+            "id": 4
+        }
+    },
+    {
+        "__entity": "RecipeStepLink",
+        "id": 5,
+        "number": 5,
+        "recipe": {
+            "id": 1
+        },
+        "step": {
+            "id": 5
+        }
+    },
+    {
+        "__entity": "RecipeStepLink",
+        "id": 6,
+        "number": 6,
+        "recipe": {
+            "id": 1
+        },
+        "step": {
+            "id": 6
+        }
+    },
+    {
+        "__entity": "RecipeStepLink",
+        "id": 7,
+        "number": 7,
+        "recipe": {
+            "id": 1
+        },
+        "step": {
+            "id": 7
+        }
+    }
+]

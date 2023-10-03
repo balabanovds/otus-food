@@ -1,0 +1,135 @@
+[
+    {
+        "__entity": "RecipeStep",
+        "id": 1,
+        "name": "В маленькой кастрюле соедините соевый соус, 6 столовых ложек воды, мёд, сахар, измельчённый чеснок, имбирь и лимонный сок.",
+        "duration": 330,
+        "recipeStepLinks": [
+            {
+                "__entity": "RecipeStepLink",
+                "id": 1,
+                "number": 1,
+                "recipe": {
+                    "id": 1
+                },
+                "step": {
+                    "id": 1
+                }
+            }
+        ]
+    },
+    {
+        "__entity": "RecipeStep",
+        "id": 2,
+        "name": "Поставьте на средний огонь и, помешивая, доведите до лёгкого кипения.",
+        "duration": 420,
+        "recipeStepLinks": [
+            {
+                "__entity": "RecipeStepLink",
+                "id": 2,
+                "number": 2,
+                "recipe": {
+                    "id": 1
+                },
+                "step": {
+                    "id": 2
+                }
+            }
+        ]
+    },
+    {
+        "__entity": "RecipeStep",
+        "id": 3,
+        "name": "Смешайте оставшуюся воду с крахмалом. Добавьте в кастрюлю и перемешайте.",
+        "duration": 360,
+        "recipeStepLinks": [
+            {
+                "__entity": "RecipeStepLink",
+                "id": 3,
+                "number": 3,
+                "recipe": {
+                    "id": 1
+                },
+                "step": {
+                    "id": 3
+                }
+            }
+        ]
+    },
+    {
+        "__entity": "RecipeStep",
+        "id": 4,
+        "name": "Готовьте, непрерывно помешивая венчиком, 1 минуту. Снимите с огня и немного остудите.",
+        "duration": 90,
+        "recipeStepLinks": [
+            {
+                "__entity": "RecipeStepLink",
+                "id": 4,
+                "number": 4,
+                "recipe": {
+                    "id": 1
+                },
+                "step": {
+                    "id": 4
+                }
+            }
+        ]
+    },
+    {
+        "__entity": "RecipeStep",
+        "id": 5,
+        "name": "Смажьте форму маслом и выложите туда рыбу. Полейте её соусом.",
+        "duration": 360,
+        "recipeStepLinks": [
+            {
+                "__entity": "RecipeStepLink",
+                "id": 5,
+                "number": 5,
+                "recipe": {
+                    "id": 1
+                },
+                "step": {
+                    "id": 5
+                }
+            }
+        ]
+    },
+    {
+        "__entity": "RecipeStep",
+        "id": 6,
+        "name": "Поставьте в разогретую до 200 °C духовку примерно на 15 минут.",
+        "duration": 900,
+        "recipeStepLinks": [
+            {
+                "__entity": "RecipeStepLink",
+                "id": 6,
+                "number": 6,
+                "recipe": {
+                    "id": 1
+                },
+                "step": {
+                    "id": 6
+                }
+            }
+        ]
+    },
+    {
+        "__entity": "RecipeStep",
+        "id": 7,
+        "name": "Перед подачей полейте соусом из формы и посыпьте кунжутом.",
+        "duration": 240,
+        "recipeStepLinks": [
+            {
+                "__entity": "RecipeStepLink",
+                "id": 7,
+                "number": 7,
+                "recipe": {
+                    "id": 1
+                },
+                "step": {
+                    "id": 7
+                }
+            }
+        ]
+    }
+]

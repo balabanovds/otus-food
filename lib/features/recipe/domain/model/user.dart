@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 
-class Recipe {
-  final int id;
-  final String imgType;
-  final String imgPath;
-  final String title;
-  final String duration;
+class User {
+  final String _imgType;
+  final String _imgPath;
+  final String name;
 
-  Recipe(this.id, this.imgType, this.imgPath, this.title, this.duration);
+  User(this._imgType, this._imgPath, this.name);
 
   Image image(BoxFit fit) {
-    switch (imgType) {
+    switch (_imgType) {
       case "asset":
         return Image.asset(
-          imgPath,
+          _imgPath,
           fit: fit,
         );
       case "network":
         return Image.network(
-          imgPath,
+          _imgPath,
           fit: fit,
         );
       default:

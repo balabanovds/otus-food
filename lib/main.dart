@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:otus_food/colors.dart';
-import 'package:otus_food/recipes_list.dart';
-import 'package:otus_food/repo/provider.dart';
-import 'package:otus_food/repo/provider_json.dart';
+import 'package:otus_food/features/recipe/adapter/mock/json.dart';
+import 'package:otus_food/features/recipe/domain/repository/provider.dart';
+import 'package:otus_food/features/recipe/view/list.dart';
 
-final RecipesProvider recipesProvider = JsonRecipesProvider();
+final Provider recipesProvider = JsonProvider();
 
 void main() {
   runApp(const MyApp());
