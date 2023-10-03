@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:otus_food/features/recipe/view/list.dart';
+import 'package:otus_food/colors.dart';
+import 'package:otus_food/recipes_list.dart';
+import 'package:otus_food/repo/provider.dart';
+import 'package:otus_food/repo/provider_json.dart';
+
+final RecipesProvider recipesProvider = JsonRecipesProvider();
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xECECECEC),
+        scaffoldBackgroundColor: bgColor,
       ),
       home: const HomePage(),
       debugShowCheckedModeBanner: false,
